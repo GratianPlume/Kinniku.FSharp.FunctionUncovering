@@ -6,8 +6,9 @@ for handle currying function in F#.
 
 It is free and unencumbered software released into the public domain.
 
-You can use it to convert a currying function to a currying `System.Func`.
 ## Usage:
+
+ You can use it to convert a currying function to a currying `System.Func`.
 
 ```fsharp
 open System
@@ -30,7 +31,7 @@ type Test =
 
 Or you can get a function return type, and bind it to a function's
 argument. 
-## Usage:
+
 ```fsharp
 module Test2 =
     open System
@@ -54,7 +55,7 @@ module Test2 =
 ```
 
 And then you can get a lite dependency injection serve too.
-## Usage:
+
 ```fsharp
 module Test3 =
     open System
