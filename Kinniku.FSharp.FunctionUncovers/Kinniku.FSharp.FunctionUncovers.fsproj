@@ -4,12 +4,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>LiJutian</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/greatim/Kinniku.FSharp.FunctionUncovers</PackageProjectUrl>
+    <Description>Function automatic inference execution</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include=".nuspec" />
     <Compile Include="FunctionUncovers.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="4.7.1" />

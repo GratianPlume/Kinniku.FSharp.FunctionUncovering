@@ -15,7 +15,7 @@ let inline getInstance< ^t, ^a when (^t or ^a): (static member GetInstance: ^a -
 
 
 
-/// 生成柯里化Func
+/// Conver the currying F# function to System.Func .
 type CurryingFunc<'T, 'R when 'R: equality> =
         
     static member inline Inject f = Func<'T,'R> f
@@ -26,7 +26,7 @@ type CurryingFunc<'T, 'R when 'R: equality> =
         Func<_,_>(fun x -> x |> f |> inject)
 
 
-/// 生成柯里化Func，最后一个为Action
+/// Conver the currying F# function to System.Func.But end with System.Action .
 type CurryingFunc<'T> =
         
     static member inline Inject f = Action<'T> f
@@ -37,7 +37,7 @@ type CurryingFunc<'T> =
         Func<_,_>(fun x -> x |> f |> inject)
 
 
-/// 测试柯里化函数的最终值类型
+/// Get a currying function's return value.
 type FuncTest<'T when 'T: equality> =
         
     static member inline Inject x: 'T = x
@@ -48,7 +48,7 @@ type FuncTest<'T when 'T: equality> =
 
         Unchecked.defaultof<_> |> f  |> inject
 
-
+/// Dependency injection.
 type Dependency<'P, 'T when 'T: equality> =
 
     static member inline Inject (x, _: 'P): 'T = x
