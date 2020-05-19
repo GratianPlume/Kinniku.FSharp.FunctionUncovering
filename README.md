@@ -1,3 +1,4 @@
+[![NuGet](https://img.shields.io/nuget/v/Kinniku.FSharp.FunctionUncovers.svg)](https://www.nuget.org/packages/Kinniku.FSharp.FunctionUncovers/)
 ## About
 
 This is a single-file project that implements some function base on

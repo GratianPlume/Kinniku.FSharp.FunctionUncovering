@@ -6,9 +6,14 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/greatim/Kinniku.FSharp.FunctionUncovers</PackageProjectUrl>
     <Description>Function automatic inference execution</Description>
+    <PackageIcon>FSharp.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\照片\FSharp.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include=".nuspec" />
     <Compile Include="FunctionUncovers.fs" />
   </ItemGroup>
