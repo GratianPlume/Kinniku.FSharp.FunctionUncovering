@@ -3,6 +3,7 @@
 This is a single-file project that implements some function base on
 [Statically Resolved Type Parameters](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/statically-resolved-type-parameters)
 for handle currying function in F#.
+
 It is free and unencumbered software released into the public domain.
 
 You can use it to convert a currying function to a currying `System.Func`.
@@ -59,9 +60,8 @@ module Test3 =
     open System
     open Kinniku.FSharp.FunctionUncovers
 
-    // build you instance provider, write static methods name with
-    // `GetInstance`, and it has one argument, type equals return 
-    // type.
+    // build you instance provider, write static methods name with `GetInstance`, and it has one argument, 
+    // type equals return type.
     type Instances = 
 
         | Instances
@@ -78,11 +78,9 @@ module Test3 =
     let foo (a: int) (b: int64) (c: DateTime) (d: string)= 
         printf "a: %d\nb: %d\nc: %A\nd: %s" a b c d
 
-    // Run foo with my instance.
+    // Run foo with my instances.
     let serveFunc () = 
-        Dependency<_,_>.Inject(foo, Instances) // parse a default 
-                                               // value to bind the
-                                               // instance provider
+        Dependency<_,_>.Inject(foo, Instances) // parse a default value to bind the instance provider
 ```
 
 
