@@ -20,12 +20,12 @@ open Kinniku.FSharp.FunctionUncovers
 type Test =
     [<Extension>]
     static member Currying(fn: Func<_,_,_,_>) =
-        // Generate a currying System.Func
+        // Generate a currying `System.Func`
         CurryingFunc<_,_>.Inject(fun a b c -> fn.Invoke(a, b, c))
 
     [<Extension>]
     static member Currying(fn: Action<_,_,_>) =
-        // Generate a currying Delegate end with System.Action
+        // Generate a currying Delegate end with `System.Action`
         CurryingFunc<_>.Inject(fun a b c -> fn.Invoke(a, b, c))        
 
 ```
@@ -40,14 +40,14 @@ module Test2 =
 
     let foo (n: int)  = {| Value = string n |}
 
-    // Get the type of one argument funtion
+    // The `handle`'s argument is the return type of `foo`.
     let handle (ResultOf foo x) =  x.Value
 
 
     let foo2 (a: int) (b: string) (c: DateTime) = 
         {| A = a; B = b; C = c |}
 
-    // Get the last return type of a currying funtion.
+    // The `handle`'s argument is the return type of `foo2`. And `foo2` is a currying function.
     let handle2 x =        
         let inline fn() = FuncTest<_>.Inject foo2
         let (ResultOf fn x) = x
@@ -55,15 +55,15 @@ module Test2 =
 
 ```
 
-And then you can get a lite dependency injection serve too.
+And then you can use it to build your lite dependency injection serve too.
 
 ```fsharp
 module Test3 =
     open System
     open Kinniku.FSharp.FunctionUncovers
 
-    // build you instance provider, write static methods name with `GetInstance`, and it has one argument, 
-    // type equals return type.
+    // Write you instance provider, it provide the instance with static methods name with `GetInstance`, and they has one argument, 
+    // it's type equals the return type.
     type Instances = 
 
         | Instances
@@ -76,11 +76,11 @@ module Test3 =
 
         static member GetInstance(_: DateTime) = DateTime.Now
 
-    // the function who want to be injected with instance.
+    // `foo` is the function whitch to be injected with instance.
     let foo (a: int) (b: int64) (c: DateTime) (d: string)= 
         printf "a: %d\nb: %d\nc: %A\nd: %s" a b c d
 
-    // Run foo with my instances.
+    // Run `foo` and inject my instances.
     let serveFunc () = 
         Dependency<_,_>.Inject(foo, Instances) // parse a default value to bind the instance provider
 ```
