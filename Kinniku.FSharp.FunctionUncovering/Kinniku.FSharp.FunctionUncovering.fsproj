@@ -15,7 +15,7 @@
       <PackagePath></PackagePath>
     </None>
     <None Include=".nuspec" />
-    <Compile Include="FunctionUncovers.fs" />
+    <Compile Include="FunctionUncovering.fs" />
   </ItemGroup>
 
   <ItemGroup />

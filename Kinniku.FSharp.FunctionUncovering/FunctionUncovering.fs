@@ -1,4 +1,4 @@
-﻿module Kinniku.FSharp.FunctionUncovers
+﻿module Kinniku.FSharp.FunctionUncovering
 open System
 
 
@@ -23,6 +23,7 @@ type CurryingFunc<'T, 'R when 'R: equality> =
     static member inline Inject f = 
 
         let inline inject x = inject<CurryingFunc<_,_>,_,_>  x 
+
         Func<_,_>(fun x -> x |> f |> inject)
 
 
@@ -34,6 +35,7 @@ type CurryingFunc<'T> =
     static member inline Inject f = 
 
         let inline inject x = inject<CurryingFunc<_>,_,_>  x 
+
         Func<_,_>(fun x -> x |> f |> inject)
 
 
